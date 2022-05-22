@@ -7,7 +7,6 @@ public class Store {
     private User[] users;
     private EmployeePosition autorizUser;
 
-
     public String getName() {
         return name;
     }
@@ -23,7 +22,6 @@ public class Store {
     public void setUrl(String url) {
         this.url = url;
     }
-
 
     public User[] getUser() {
         return users;
@@ -42,22 +40,19 @@ public class Store {
     }
 
     // метод логин
-                        // правильно ли я передаю в метод данные?
-    public boolean login(String name, String password) {            // возможно ошибка в задании логин/ имя
-
+    public boolean login(String login, String password) {        // возможно ошибка в задании логин/ имя
         for (User user : users) {
-            if (user.getName().equals(name)) {
+            if (user.getLogin().equals(login)) {
                 if (user.getPassword().equals(password)) {
-                    autorizUser = user.getRole();            // тут наверное надо объект(enum) а не строка
-                    return true;      // два одинаковых пункта
+                    autorizUser = user.getRole();
+                    return true;      // два одинаковых пункта в задании
                 } else {
                     return false;
                 }
             }
         }
-        return false;           // зачем тут этот возврат?
+        return false;
     }
-
 
     // метод текущая должность
     public String getCurrentUserRights() {
@@ -76,11 +71,10 @@ public class Store {
         return null;
     }
 
-    // пользователь вішел из системі
+    // выход из системы
     public void logout() {
-        setAutorizUser(null);               // setAutorizUser тут надо объкт а не строка???
+        setAutorizUser(null);
         System.out.println("Пользователь вышел из системы");
     }
-
 }
 

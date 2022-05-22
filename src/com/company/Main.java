@@ -6,6 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
 
+        // рабы )
         User userOne = new User("logIn1", "121", "Vasya", EmployeePosition.ANONYM);
         User userTwo = new User("logIn2", "122", "Kolya", EmployeePosition.DIRECTOR);
         User userThree = new User("logIn3", "123", "Vlad", EmployeePosition.ADMIN);
@@ -33,9 +34,8 @@ public class Main {
         System.out.println("Введите пароль: ");
         String password = scanner.nextLine();
 
-        if (store.login(login, password)) {
-            store.getCurrentUserRights();
-            // System.out.println("отримані дані такого чувака");
+        if (store.login(login, password)) {  // походу в задании описка, надо логин вместо имени
+            System.out.println(store.getCurrentUserRights());
             store.logout();
         } else {
             System.out.println("Неверный логин и/или пароль");
